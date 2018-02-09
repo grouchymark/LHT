@@ -38,7 +38,7 @@
     },
     "path": "@PROJECT_PATH@",
     "versionFirst": "4.6.1",
-    "uniqCompNum": 20,
+    "uniqCompNum": 21,
     "versionPublish": "4.6.1",
     "screenshot": "screenshot.png"
   },
@@ -795,6 +795,22 @@
           ],
           "_name": "pro.custom-html",
           "_anchor": "custom-html-j",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [
+            "<script src=\"//www.powr.io/powr.js?external-type=html\"></script>"
+          ]
+        },
+        {
+          "_customTemplate": true,
+          "_afterNavbarItem": false,
+          "_customHTML": "{JS_CODE_0} \n <div class=\"powr-menu\" id=\"849e1158_1518153381\"></div>",
+          "_customCSS": "/* Type valid CSS here */\n.my-image {\n  width: 100%;\n}",
+          "alias": "code-editor",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "pro.custom-html",
+          "_anchor": "custom-html-k",
           "_PHPplaceholders": [],
           "_JSplaceholders": [
             "<script src=\"//www.powr.io/powr.js?external-type=html\"></script>"

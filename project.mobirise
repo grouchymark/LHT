@@ -38,7 +38,7 @@
     },
     "path": "@PROJECT_PATH@",
     "versionFirst": "4.6.1",
-    "uniqCompNum": 24,
+    "uniqCompNum": 26,
     "versionPublish": "4.6.1",
     "screenshot": "screenshot.png"
   },
@@ -980,6 +980,138 @@
           ],
           "_name": "feed",
           "_anchor": "feed-e"
+        },
+        {
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-section-subtitle": {
+              "color": "#444444"
+            },
+            ".media-container-row": {
+              "-webkit-flex-wrap": "wrap",
+              "-ms-flex-wrap": "wrap",
+              "flex-wrap": "wrap"
+            },
+            ".mbr-text": {
+              "color": "#444444"
+            },
+            ".mbr-author-desc": {
+              "display": "block",
+              "color": "#444444"
+            },
+            ".mbr-author-name": {
+              "color": "#444444"
+            },
+            ".mbr-testimonial": {
+              ".panel-item": {
+                "background-color": "@cardsColor"
+              },
+              ".card-block": {
+                "-webkit-flex-grow": "0",
+                "flex-grow": "0",
+                "padding": "2.4rem 2.4rem 0 2.4rem",
+                ".testimonial-photo": {
+                  "display": "inline-block",
+                  "width": "120px",
+                  "height": "120px",
+                  "& when not (@showUnderline)": {
+                    "margin-bottom": "1.6rem"
+                  },
+                  "overflow": "hidden",
+                  "border-radius": "50%",
+                  "img": {
+                    "width": "100%",
+                    "min-width": "100%",
+                    "min-height": "100%"
+                  }
+                }
+              },
+              ".card-footer": {
+                "padding-bottom": "2.4rem",
+                "border-top": "0",
+                "padding-top": "1rem",
+                "word-wrap": "break-word",
+                "word-break": "break-word",
+                "background": "none"
+              }
+            },
+            "@media (max-width: 300px)": {
+              ".testimonial-photo": {
+                "width": "100% !important",
+                "height": "auto !important"
+              }
+            },
+            "H2": {
+              "color": "#ffffff"
+            }
+          },
+          "_name": "testimonials2",
+          "_customHTML": "<section class=\"testimonials2\" group=\"Testimonials\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n     <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"6\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"6\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"checkbox\" title=\"Show Images\" name=\"showImages\" checked>\n        <input type=\"checkbox\" title=\"Show Underline\" name=\"showUnderline\" checked>\n        <input type=\"color\" title=\"Underline Color\" name=\"underlineColor\" value=\"#e7182b\" condition=\"showUnderline\">\n        <input type=\"checkbox\" title=\"Show Name\" name=\"showName\" checked>\n        <input type=\"checkbox\" title=\"Show Bio\" name=\"showBio\">\n\n        <input type=\"color\" title=\"Cards Color\" name=\"cardsColor\" value=\"#ffffff\">\n        <select title=\"Cards Count\" name=\"TestimonialsCount\">\n         <option value=\"1\">1</option>\n         <option value=\"2\">2</option>\n         <option value=\"3\" selected>3</option>\n         <option value=\"4\">4</option>\n         <option value=\"5\">5</option>\n         <option value=\"6\">6</option>\n        </select>\n\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background2.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#3b47aa\" selected>\n            <input type=\"video\" title=\"Background Video\" value=\"https://www.youtube.com/watch?v=pjiVuLVqWQg\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#efefef\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\"> \n    <!-- End block parameters --> \n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n    <div class=\"container\">\n        <div class=\"media-container-row\">\n            <div class=\"title col-12 align-center\">\n                <h2 class=\"pb-3 mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\">What Our FANTASTIC CUSTOMERS Have To Say...</h2>\n                <h3 class=\"mbr-section-subtitle mbr-light pb-3 mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam necessitatibus asperiores nam dolores, expedita velit, sit eius quasi deleniti excepturi! Nulla ipsum iure, minima ullam similique officiis ea cum blanditiis.\n                </h3>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"container pt-3 mt-2\">\n        <div class=\"media-container-row\">\n            <div class=\"mbr-testimonial p-3 align-center col-12 col-md-6\" mbr-class=\"{'col-lg-4': TestimonialsCount > 2 }\">\n                <div class=\"panel-item p-3\">\n                    <div class=\"card-block\">\n                        <div class=\"testimonial-photo\" mbr-if=\"showImages\">\n                            <img src=\"../_images/faces/face1.jpg\">\n                        </div>\n                        <div class=\"py-3 ornament align-center\" mbr-if=\"showUnderline\">\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 133 20\" height=\"20\" width=\"150\" fill=\"{{underlineColor}}\">\n                                <g><path d=\"M127.18,6.19C121-.05,109.94-.24,101.84.1,90.84.56,80,3.3,69.32,5.77c-8,1.86-16,3.63-24,5.72-9.21,2.41-18.6,4.72-28.14,5.19-4.1.2-8.48,0-12.16-2a6.6,6.6,0,0,1-2.7-9A5.46,5.46,0,0,1,7.07,2.77c4-.22,6.73,8.39-.08,4.58a.49.49,0,0,0-.49.84c4.88,3,10.8,0,5.4-4.91C7.6-.63.4,2.06,0,8-1,24,28.25,17,36.29,15.24,53.74,11.37,70.9,6.44,88.53,3.33c11.1-2,24.75-3.54,35.06,2.19a16,16,0,0,1,6.86,8.85c1.29,4.31-4.35,4.2-7,3.52-4.84-1.26-2.42-8,1.22-3,.61.83,2,0,1.4-.82-2.15-2.93-6.71-4.9-7.12.35s8.36,7.24,11.72,4.47C135,15.32,129.91,9,127.18,6.19Z\"></path></g>\n                            </svg>\n                        </div>\n                        <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, aspernatur, voluptatibus, atque, tempore molestiae.\n                        </p>\n                    </div>\n                    <div class=\"card-footer\">\n                        <div class=\"mbr-author-name mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".mbr-author-name\" mbr-text>\n                             John Smith\n                        </div>\n                        <small class=\"mbr-author-desc mbr-italic mbr-light mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showBio\" data-app-selector=\".mbr-author-desc\" mbr-text>\n                               Developer\n                        </small>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"mbr-testimonial p-3 align-center col-12 col-md-6\" mbr-class=\"{'col-lg-4': TestimonialsCount > 2 }\" mbr-if=\"TestimonialsCount>1\">\n                <div class=\"panel-item p-3\">\n                    <div class=\"card-block\">\n                        <div class=\"testimonial-photo\" mbr-if=\"showImages\">\n                            <img src=\"../_images/faces/face2.jpg\">\n                        </div>\n                        <div class=\"py-3 ornament align-center\" mbr-if=\"showUnderline\">\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 133 20\" height=\"20\" width=\"150\" fill=\"{{underlineColor}}\">\n                                <g><path d=\"M127.18,6.19C121-.05,109.94-.24,101.84.1,90.84.56,80,3.3,69.32,5.77c-8,1.86-16,3.63-24,5.72-9.21,2.41-18.6,4.72-28.14,5.19-4.1.2-8.48,0-12.16-2a6.6,6.6,0,0,1-2.7-9A5.46,5.46,0,0,1,7.07,2.77c4-.22,6.73,8.39-.08,4.58a.49.49,0,0,0-.49.84c4.88,3,10.8,0,5.4-4.91C7.6-.63.4,2.06,0,8-1,24,28.25,17,36.29,15.24,53.74,11.37,70.9,6.44,88.53,3.33c11.1-2,24.75-3.54,35.06,2.19a16,16,0,0,1,6.86,8.85c1.29,4.31-4.35,4.2-7,3.52-4.84-1.26-2.42-8,1.22-3,.61.83,2,0,1.4-.82-2.15-2.93-6.71-4.9-7.12.35s8.36,7.24,11.72,4.47C135,15.32,129.91,9,127.18,6.19Z\"></path></g>\n                            </svg>\n                        </div>\n                        <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, aspernatur, voluptatibus, atque, tempore molestiae.\n                        </p>\n                    </div>\n                    <div class=\"card-footer\">\n                        <div class=\"mbr-author-name mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".mbr-author-name\" mbr-text>\n                             John Smith\n                        </div>\n                        <small class=\"mbr-author-desc mbr-italic mbr-light mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showBio\" data-app-selector=\".mbr-author-desc\" mbr-text>\n                               Developer\n                        </small>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"mbr-testimonial p-3 align-center col-12 col-md-6\" mbr-class=\"{'col-lg-4': TestimonialsCount > 2 }\" mbr-if=\"TestimonialsCount>2\">\n                <div class=\"panel-item p-3\">\n                    <div class=\"card-block\">\n                        <div class=\"testimonial-photo\" mbr-if=\"showImages\">\n                            <img src=\"../_images/faces/face3.jpg\">\n                        </div>\n                        <div class=\"py-3 ornament align-center\" mbr-if=\"showUnderline\">\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 133 20\" height=\"20\" width=\"150\" fill=\"{{underlineColor}}\">\n                                <g><path d=\"M127.18,6.19C121-.05,109.94-.24,101.84.1,90.84.56,80,3.3,69.32,5.77c-8,1.86-16,3.63-24,5.72-9.21,2.41-18.6,4.72-28.14,5.19-4.1.2-8.48,0-12.16-2a6.6,6.6,0,0,1-2.7-9A5.46,5.46,0,0,1,7.07,2.77c4-.22,6.73,8.39-.08,4.58a.49.49,0,0,0-.49.84c4.88,3,10.8,0,5.4-4.91C7.6-.63.4,2.06,0,8-1,24,28.25,17,36.29,15.24,53.74,11.37,70.9,6.44,88.53,3.33c11.1-2,24.75-3.54,35.06,2.19a16,16,0,0,1,6.86,8.85c1.29,4.31-4.35,4.2-7,3.52-4.84-1.26-2.42-8,1.22-3,.61.83,2,0,1.4-.82-2.15-2.93-6.71-4.9-7.12.35s8.36,7.24,11.72,4.47C135,15.32,129.91,9,127.18,6.19Z\"></path></g>\n                            </svg>\n                        </div>\n                        <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, aspernatur, voluptatibus, atque, tempore molestiae.\n                        </p>\n                    </div>\n                    <div class=\"card-footer\">\n                        <div class=\"mbr-author-name mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".mbr-author-name\" mbr-text>\n                             John Smith\n                        </div>\n                        <small class=\"mbr-author-desc mbr-italic mbr-light mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showBio\" data-app-selector=\".mbr-author-desc\" mbr-text>\n                               Developer\n                        </small>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"mbr-testimonial p-3 align-center col-12 col-md-6\" mbr-class=\"{'col-lg-4': TestimonialsCount > 2 }\" mbr-if=\"TestimonialsCount>3\">\n                <div class=\"panel-item p-3\">\n                    <div class=\"card-block\">\n                        <div class=\"testimonial-photo\" mbr-if=\"showImages\">\n                            <img src=\"../_images/faces/face4.jpg\">\n                        </div>\n                        <div class=\"py-3 ornament align-center\" mbr-if=\"showUnderline\">\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 133 20\" height=\"20\" width=\"150\" fill=\"{{underlineColor}}\">\n                                <g><path d=\"M127.18,6.19C121-.05,109.94-.24,101.84.1,90.84.56,80,3.3,69.32,5.77c-8,1.86-16,3.63-24,5.72-9.21,2.41-18.6,4.72-28.14,5.19-4.1.2-8.48,0-12.16-2a6.6,6.6,0,0,1-2.7-9A5.46,5.46,0,0,1,7.07,2.77c4-.22,6.73,8.39-.08,4.58a.49.49,0,0,0-.49.84c4.88,3,10.8,0,5.4-4.91C7.6-.63.4,2.06,0,8-1,24,28.25,17,36.29,15.24,53.74,11.37,70.9,6.44,88.53,3.33c11.1-2,24.75-3.54,35.06,2.19a16,16,0,0,1,6.86,8.85c1.29,4.31-4.35,4.2-7,3.52-4.84-1.26-2.42-8,1.22-3,.61.83,2,0,1.4-.82-2.15-2.93-6.71-4.9-7.12.35s8.36,7.24,11.72,4.47C135,15.32,129.91,9,127.18,6.19Z\"></path></g>\n                            </svg>\n                        </div>\n                        <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, aspernatur, voluptatibus, atque, tempore molestiae.\n                        </p>\n                    </div>\n                    <div class=\"card-footer\">\n                        <div class=\"mbr-author-name mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".mbr-author-name\" mbr-text>\n                             John Smith\n                        </div>\n                        <small class=\"mbr-author-desc mbr-italic mbr-light mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showBio\" data-app-selector=\".mbr-author-desc\" mbr-text>\n                               Developer\n                        </small>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"mbr-testimonial p-3 align-center col-12 col-md-6\" mbr-class=\"{'col-lg-4': TestimonialsCount > 2 }\" mbr-if=\"TestimonialsCount>4\">\n                <div class=\"panel-item p-3\">\n                    <div class=\"card-block\">\n                        <div class=\"testimonial-photo\" mbr-if=\"showImages\">\n                            <img src=\"../_images/faces/face5.jpg\">\n                        </div>\n                        <div class=\"py-3 ornament align-center\" mbr-if=\"showUnderline\">\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 133 20\" height=\"20\" width=\"150\" fill=\"{{underlineColor}}\">\n                                <g><path d=\"M127.18,6.19C121-.05,109.94-.24,101.84.1,90.84.56,80,3.3,69.32,5.77c-8,1.86-16,3.63-24,5.72-9.21,2.41-18.6,4.72-28.14,5.19-4.1.2-8.48,0-12.16-2a6.6,6.6,0,0,1-2.7-9A5.46,5.46,0,0,1,7.07,2.77c4-.22,6.73,8.39-.08,4.58a.49.49,0,0,0-.49.84c4.88,3,10.8,0,5.4-4.91C7.6-.63.4,2.06,0,8-1,24,28.25,17,36.29,15.24,53.74,11.37,70.9,6.44,88.53,3.33c11.1-2,24.75-3.54,35.06,2.19a16,16,0,0,1,6.86,8.85c1.29,4.31-4.35,4.2-7,3.52-4.84-1.26-2.42-8,1.22-3,.61.83,2,0,1.4-.82-2.15-2.93-6.71-4.9-7.12.35s8.36,7.24,11.72,4.47C135,15.32,129.91,9,127.18,6.19Z\"></path></g>\n                            </svg>\n                        </div>\n                        <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, aspernatur, voluptatibus, atque, tempore molestiae.\n                        </p>\n                    </div>\n                    <div class=\"card-footer\">\n                        <div class=\"mbr-author-name mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".mbr-author-name\" mbr-text>\n                             John Smith\n                        </div>\n                        <small class=\"mbr-author-desc mbr-italic mbr-light mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showBio\" data-app-selector=\".mbr-author-desc\" mbr-text>\n                               Developer\n                        </small>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"mbr-testimonial p-3 align-center col-12 col-md-6\" mbr-class=\"{'col-lg-4': TestimonialsCount > 2 }\" mbr-if=\"TestimonialsCount>5\">\n                <div class=\"panel-item p-3\">\n                    <div class=\"card-block\">\n                        <div class=\"testimonial-photo\" mbr-if=\"showImages\">\n                            <img src=\"../_images/faces/face6.jpg\">\n                        </div>\n                        <div class=\"py-3 ornament align-center\" mbr-if=\"showUnderline\">\n                            <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 133 20\" height=\"20\" width=\"150\" fill=\"{{underlineColor}}\">\n                                <g><path d=\"M127.18,6.19C121-.05,109.94-.24,101.84.1,90.84.56,80,3.3,69.32,5.77c-8,1.86-16,3.63-24,5.72-9.21,2.41-18.6,4.72-28.14,5.19-4.1.2-8.48,0-12.16-2a6.6,6.6,0,0,1-2.7-9A5.46,5.46,0,0,1,7.07,2.77c4-.22,6.73,8.39-.08,4.58a.49.49,0,0,0-.49.84c4.88,3,10.8,0,5.4-4.91C7.6-.63.4,2.06,0,8-1,24,28.25,17,36.29,15.24,53.74,11.37,70.9,6.44,88.53,3.33c11.1-2,24.75-3.54,35.06,2.19a16,16,0,0,1,6.86,8.85c1.29,4.31-4.35,4.2-7,3.52-4.84-1.26-2.42-8,1.22-3,.61.83,2,0,1.4-.82-2.15-2.93-6.71-4.9-7.12.35s8.36,7.24,11.72,4.47C135,15.32,129.91,9,127.18,6.19Z\"></path></g>\n                            </svg>\n                        </div>\n                        <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-text\">\n                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, aspernatur, voluptatibus, atque, tempore molestiae.\n                    </p></div>\n                    <div class=\"card-footer\">\n                        <div class=\"mbr-author-name mbr-bold mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".mbr-author-name\" mbr-text>\n                             John Smith\n                        </div>\n                        <small class=\"mbr-author-desc mbr-italic mbr-light mbr-fonts-style\" mbr-theme-style=\"display-7\" mbr-if=\"showBio\" data-app-selector=\".mbr-author-desc\" mbr-text>\n                               Developer\n                        </small>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>   \n</section>",
+          "_cid": "qJ8z6X5zLH",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {},
+          "_anchor": "testimonials2-o"
+        },
+        {
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".row": {
+              "justify-content": "flex-end",
+              "align-items": "stretch"
+            },
+            ".content-panel": {
+              "padding": "3rem",
+              "background-color": "@cardBg"
+            },
+            ".text-block": {
+              "padding-right": "0"
+            },
+            ".google-map": {
+              "width": "100%",
+              "height": "30rem",
+              "iframe": {
+                "width": "inherit",
+                "height": "100%",
+                ".place-card": {
+                  "margin-left": "40px !important"
+                }
+              },
+              "& when (@grayFilter)": {
+                "-webkit-filter": "grayscale(100%)",
+                "-moz-filter": "grayscale(100%)",
+                "-ms-filter": "grayscale(100%)",
+                "-o-filter": "grayscale(100%)",
+                "filter": "gray"
+              },
+              ".place-card": {
+                "margin-left": "40px !important"
+              }
+            }
+          },
+          "_name": "info2",
+          "_customHTML": "<section class=\"info2\" group=\"Info\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" value=\"6\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" value=\"6\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\" checked>\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <input type=\"color\" title=\"Card BG\" name=\"cardBg\" value=\"#444444\">\n        <input type=\"map\" title=\"Map\" name=\"googleMap\">\n        <input type=\"checkbox\" title=\"Gray Filter\" name=\"grayFilter\" checked>\n\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background5.jpg\" selected parallax>\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\">\n            <input type=\"video\" title=\"Background Video\" value=\"https://www.youtube.com/watch?v=pjiVuLVqWQg\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n    <div class=\"container\">\n        <div class=\"row\">\n            <div class=\"col-sm-12 col-lg-4 col-md-6 text-block\">            \n                <div class=\"content-panel\">\n                    <h2 class=\"mbr-section-title mbr-fonts-style align-left mbr-white\" mbr-class=\"{'pb-2': !showSubtitle}\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n                        Visit Us Soon!</h2>\n                    <h3 class=\"mbr-section-subtitle mbr-fonts-style align-left mbr-white pb-2\" mbr-theme-style=\"display-5\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">Lincoln <br>Highway <br>Tavern</h3>\n                    <p class=\"adress-block mbr-fonts-style align-left mbr-white\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".adress-block\">1943 Harrison Drive<br>Evanston, WY. 82930<br><br></p>\n                </div>\n            </div>\n            <div class=\"col-sm-12 col-lg-8 col-md-6\">\n                <div class=\"google-map\" mbr-map=\"googleMap\"></div>\n            </div>\n        </div>\n   </div>\n</section>",
+          "_cid": "qJ8zeZwRan",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {},
+          "_anchor": "info2-p"
         },
         {
           "_styles": {

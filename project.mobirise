@@ -38,7 +38,7 @@
     },
     "path": "@PROJECT_PATH@",
     "versionFirst": "4.6.1",
-    "uniqCompNum": 21,
+    "uniqCompNum": 24,
     "versionPublish": "4.6.1",
     "screenshot": "screenshot.png"
   },
@@ -811,6 +811,54 @@
           ],
           "_name": "pro.custom-html",
           "_anchor": "custom-html-k",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [
+            "<script src=\"//www.powr.io/powr.js?external-type=html\"></script>"
+          ]
+        },
+        {
+          "_customTemplate": true,
+          "_afterNavbarItem": false,
+          "_customHTML": "{JS_CODE_0} \n <div class=\"powr-menu\" id=\"56484de5_1518154568\"></div>",
+          "_customCSS": "/* Type valid CSS here */\n.my-image {\n  width: 100%;\n}",
+          "alias": "code-editor",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "pro.custom-html",
+          "_anchor": "custom-html-l",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [
+            "<script src=\"//www.powr.io/powr.js?external-type=html\"></script>"
+          ]
+        },
+        {
+          "_customTemplate": true,
+          "_afterNavbarItem": false,
+          "_customHTML": "{JS_CODE_0} \n <div class=\"powr-menu\" id=\"03e90676_1518156076\"></div>",
+          "_customCSS": "/* Type valid CSS here */\n.my-image {\n  width: 100%;\n}",
+          "alias": "code-editor",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "pro.custom-html",
+          "_anchor": "custom-html-m",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [
+            "<script src=\"//www.powr.io/powr.js?external-type=html\"></script>"
+          ]
+        },
+        {
+          "_customTemplate": true,
+          "_afterNavbarItem": false,
+          "_customHTML": "{JS_CODE_0} \n <div class=\"powr-menu\" id=\"00e4183d_1518157127\"></div>",
+          "_customCSS": "/* Type valid CSS here */\n.my-image {\n  width: 100%;\n}",
+          "alias": "code-editor",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "pro.custom-html",
+          "_anchor": "custom-html-n",
           "_PHPplaceholders": [],
           "_JSplaceholders": [
             "<script src=\"//www.powr.io/powr.js?external-type=html\"></script>"

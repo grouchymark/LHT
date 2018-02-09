@@ -1,6 +1,6 @@
 {
   "settings": {
-    "name": "Site-02-07_1922",
+    "name": "Lincoln Highway Tavern",
     "currentPage": "index.html",
     "theme": {
       "name": "restaurantm4",
@@ -40,7 +40,14 @@
     "versionFirst": "4.6.1",
     "uniqCompNum": 58,
     "versionPublish": "4.6.1",
-    "screenshot": "screenshot.png"
+    "screenshot": "screenshot.png",
+    "robotsText": "User-agent: *\r\nDisallow: /cgi-bin\r\n",
+    "robotsSwitcher": "",
+    "favicon": "",
+    "noImageResize": "",
+    "google-analytics": "",
+    "cookiesAlert": "",
+    "siteUrl": "undefined"
   },
   "pages": {
     "index.html": {
@@ -1114,8 +1121,8 @@
             "paddingTop": "4",
             "paddingBottom": "4",
             "postToLoad": "10",
-            "facebook": "Lincoln-Highway-Tavern-795010153910175/",
-            "twitter": "marconi82930",
+            "facebook": "GrouchyMarkProductions, RockIsToTheBone",
+            "twitter": "RedDevilSports1",
             "google": "",
             "youtube": "",
             "bgColorRadio": false,

@@ -1313,6 +1313,12 @@ body {
 .cid-qJ34yuARRn .text-block {
   color: #ffffff;
 }
+#custom-html-j {
+  /* Type valid CSS here */
+}
+#custom-html-j .my-image {
+  width: 100%;
+}
 .cid-qJ2F5BcZQb {
   padding-top: 60px;
   padding-bottom: 60px;

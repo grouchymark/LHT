@@ -38,7 +38,7 @@
     },
     "path": "@PROJECT_PATH@",
     "versionFirst": "4.6.1",
-    "uniqCompNum": 57,
+    "uniqCompNum": 58,
     "versionPublish": "4.6.1",
     "screenshot": "screenshot.png"
   },
@@ -715,6 +715,22 @@
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "_customTemplate": true,
+          "_afterNavbarItem": false,
+          "_customHTML": "<!-- Type valid HTML here -->{JS_CODE_0} \n <div class=\"powr-facebook-feed\" id=\"b92a703a_1518185494\"></div>",
+          "_customCSS": "/* Type valid CSS here */\n.my-image {\n  width: 100%;\n}",
+          "alias": "code-editor",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "pro.custom-html",
+          "_anchor": "custom-html-1l",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [
+            "<script src=\"//www.powr.io/powr.js?external-type=html\"></script>"
+          ]
         },
         {
           "_styles": {

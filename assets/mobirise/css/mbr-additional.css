@@ -1319,6 +1319,12 @@ body {
     width: 100%;
   }
 }
+#custom-html-1l {
+  /* Type valid CSS here */
+}
+#custom-html-1l .my-image {
+  width: 100%;
+}
 .cid-qJ2EMkU6Ct {
   padding-top: 45px;
   padding-bottom: 45px;
